@@ -9,7 +9,7 @@ poetry shell
 poetry install
 ```
 
-### Runing API
+### Running the API
 
 ```bash
 poetry run uvicorn tryvital.main:app --reload
@@ -19,8 +19,6 @@ INFO:     Started server process [69448]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 ```
-
-
 
 ## Project structure
 
@@ -32,11 +30,16 @@ INFO:     Application startup complete.
 │       ├── __init__.py
 │       ├── endpoints
 │       │   ├── __init__.py
-│       │   └── historical.py  # Fill activity endpoint here.
+│       │   └── api.py  # Fill activity endpoint here.
 │       └── router.py
+|── fitbit.py # Fitbit related code.
 └── main.py
 ```
 
 ### Task
 
-Build an endpoint ([here](tryvital/api/api_v1/endpoints/historical.py)) that fetches Fitbit historical activity data and saves it in the db.
+Build an endpoint ([here](tryvital/api/api_v1/endpoints/api.py)) that fetches Fitbit activity data and saves it in the db.
+
+API documentation for Fitbit activity:
+
+<https://dev.fitbit.com/build/reference/web-api/activity/get-daily-activity-summary/>
