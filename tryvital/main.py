@@ -5,7 +5,7 @@ from tryvital.api.api_v1.router import api_router
 
 app = FastAPI(title="TryVital exercise")
 
-app.include_router(api_router, prefix="/api/v1")
+app.include_router(api_router, prefix="/v1")
 
 
 def run_server():
