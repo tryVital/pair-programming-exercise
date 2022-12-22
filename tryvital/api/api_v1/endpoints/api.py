@@ -1,20 +1,10 @@
-import uuid
-from datetime import date, datetime
+from datetime import date
 
 from fastapi import APIRouter
-from pydantic import BaseModel
 
-from fitbit import fitbit_connected_callback, Credentials
+from fitbit import fitbit_connected_callback, Activity, Credentials
 
 router = APIRouter()
-
-
-class Activity(BaseModel):
-    id: uuid.UUID
-    user_id: str
-    date: date
-    steps: int
-    calories: int
 
 
 @router.get("/activity")
