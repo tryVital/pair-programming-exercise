@@ -2,7 +2,7 @@
 
 ## Installation guide
 
-Before installation, you must have python (>3.6) and poetry already installed in your system.
+Before installation, you must have Python (>=3.7) and poetry already installed in your system.
 
 ```bash
 poetry shell
@@ -19,6 +19,13 @@ INFO:     Started server process [69448]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 ```
+
+#### Useful resources
+
+Things FastAPI gives you out-of-the-box:
+
+* The FastAPI [docs page](http://127.0.0.1:8000/docs). This shows all the endpoints with their full path, parameters, etc. You can also call the API from here.
+* The [redoc page](http://127.0.0.1:8000/redoc) shows the Open API specification for the project.
 
 ## Project structure
 

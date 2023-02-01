@@ -12,7 +12,7 @@ async def get_activity(
     start_date: date,
     end_date: date,
     user_id: str,
-) -> Activity:
+) -> list[Activity]:
     """Get activity data for a user."""
     return "Success"
 
