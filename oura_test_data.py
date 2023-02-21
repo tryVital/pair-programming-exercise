@@ -14,7 +14,7 @@ test1 = [
         duration=3600 * 6,
     ),
     SleepDocument(
-        id="1234",
+        id="1235",
         contributors={
             "efficiency": 91.0,
         },
@@ -24,7 +24,7 @@ test1 = [
         duration=3600 * 3,
     ),
     SleepDocument(
-        id="1234",
+        id="1236",
         contributors={
             "efficiency": 82.0,
         },
