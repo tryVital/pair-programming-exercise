@@ -1,7 +1,7 @@
 from datetime import date, datetime
 from typing import Dict, Iterator, Literal, Optional
 
-from pydantic import BaseModel, ConstrainedInt
+from pydantic import BaseModel, ConstrainedInt, NonNegativeInt
 
 
 class _Percent(ConstrainedInt):
@@ -28,6 +28,7 @@ class SleepDocument(BaseModel):
     day: date
     score: Optional[float]
     timestamp: datetime
+    duration: NonNegativeInt
 
 
 def merge_sleep(raw_sleep: Iterator[SleepDocument]) -> Iterator[SleepDocument]:
