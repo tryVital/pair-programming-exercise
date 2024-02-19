@@ -2,7 +2,7 @@ from datetime import date
 
 from fastapi import APIRouter
 
-from fitbit import fitbit_connected_callback, Activity, Credentials
+from tryvital.models import Activity, Credentials
 
 router = APIRouter()
 
@@ -11,15 +11,22 @@ router = APIRouter()
 async def get_activity(
     start_date: date,
     end_date: date,
-    user_id: str,
+    vital_user_id: str,
 ) -> list[Activity]:
-    """Get activity data for a user."""
+    """
+    Get stored activity data of a user.
+    """
     return "Success"
 
 
-@router.post("/fitbit/connect/{user_id}")
-async def connect_fitbit(user_id: str) -> str:
-    """This endpoint is called when a user connects their Fitbit account."""
-    credentials = Credentials(access_token="foo", refresh_token="bar")
-    fitbit_connected_callback(user_id, credentials)
+@router.post("/fitbit/connect/{vital_user_id}")
+async def connect_fitbit(vital_user_id: str) -> str:
+    """
+    Callback when a user has successfully authenticated with Fitbit.
+    """
+
+    credentials = Credentials(access_token="INTERVIEWER_TO_PROVIDE")
+
+    print(f"Vital User ID: {vital_user_id}")
+
     return "Success"

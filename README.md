@@ -28,29 +28,39 @@ INFO:     Application startup complete.
 
 Things FastAPI gives you out-of-the-box:
 
-* The FastAPI [docs page](http://127.0.0.1:8000/docs). This shows all the endpoints with their full path, parameters, etc. You can also call the API from here.
-* The [redoc page](http://127.0.0.1:8000/redoc) shows the Open API specification for the project.
+* [Swagger UI](http://127.0.0.1:8000/docs) with API Playground.
+* [Redoc](http://127.0.0.1:8000/redoc) for a prettier look at the OpenAPI schema.
 
 ## Project structure
 
 ```
-├── __init__.py
+tryvital
 ├── api
-│   ├── __init__.py
 │   └── api_v1
-│       ├── __init__.py
 │       ├── endpoints
-│       │   ├── __init__.py
-│       │   └── api.py  # Fill activity endpoint here.
+│       │   └── api.py  # Endpoints are defined here.
 │       └── router.py
-|── fitbit.py # Fitbit related code.
+|── models.py           # Pre-defined Pydantic models
 └── main.py
 ```
 
-### Task
+### Exercise Goal
 
-Build an endpoint ([here](tryvital/api/api_v1/endpoints/api.py)) that fetches Fitbit activity data and saves it in the db.
+There are two deliverables:
 
-API documentation for Fitbit activity:
+1. Implement the callback endpoint: `POST /v1/fitbit/connect/{vital_user_id}`
+  * It should fetch 7 days worth of (historical) activity daily summary data from Fitbit API.
+  * It should then store it in a method of your own choice.
 
-<https://dev.fitbit.com/build/reference/web-api/activity/get-daily-activity-summary/>
+2. Implement the query endpoint: `GET /v1/activity`
+  * It should query the activity daily summary data being stored in Deliverable 1.
+  * The result must be filtered in accordance to the input date range.
+  * The date range should be start inclusive and end inclusive.
+
+Notes:
+
+* This exercise does not involve going through the actual Fitbit OAuth flow.
+* [Fitbit API documentation: Get Daily Activity Summary](https://dev.fitbit.com/build/reference/web-api/activity/get-daily-activity-summary/)
+* A valid Fitbit API access token would be provided by the interviewer at the start of the session.
+
+![Flow Diagram](/flow-diagram.png)
