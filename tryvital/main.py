@@ -10,5 +10,5 @@ app.include_router(api_router, prefix="/v1")
 
 def run_server():
     import uvicorn
-    uvicorn.run(f"{__name__}:app", port=5000, log_level="info", reload=True)
+    uvicorn.run(f"{__name__}:app", port=8000, log_level="info", reload=True)
 

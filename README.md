@@ -2,7 +2,7 @@
 
 ## Installation guide
 
-Before installation, you must have Python (>=3.7) and poetry already installed in your system.
+Before installation, you must have Python 3.10-3.12 and Poetry already installed in your system.
 
 ```bash
 poetry shell
@@ -12,7 +12,11 @@ poetry install
 ### Running the API
 
 ```bash
-poetry run uvicorn tryvital.main:app --reload
+poetry run server
+```
+
+Expected standout output:
+```bash
 INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
 INFO:     Started reloader process [69443] using WatchFiles
 INFO:     Started server process [69448]
