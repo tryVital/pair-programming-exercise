@@ -28,8 +28,8 @@ INFO:     Application startup complete.
 
 Things FastAPI gives you out-of-the-box:
 
-* [Swagger UI](http://127.0.0.1:8000/docs) with API Playground.
-* [Redoc](http://127.0.0.1:8000/redoc) for a prettier look at the OpenAPI schema.
+* Swagger UI (http://127.0.0.1:8000/docs) with API Playground.
+* Redoc (http://127.0.0.1:8000/redoc) for a prettier look at the OpenAPI schema.
 
 ## Project structure
 
@@ -60,7 +60,8 @@ There are two deliverables:
 Notes:
 
 * This exercise does not involve going through the actual Fitbit OAuth flow.
-* [Fitbit API documentation: Get Daily Activity Summary](https://dev.fitbit.com/build/reference/web-api/activity/get-daily-activity-summary/)
+* Fitbit API documentation: Get Daily Activity Summary
+  * https://dev.fitbit.com/build/reference/web-api/activity/get-daily-activity-summary/
 * A valid Fitbit API access token would be provided by the interviewer at the start of the session.
 
 ![Flow Diagram](/flow-diagram.png)
