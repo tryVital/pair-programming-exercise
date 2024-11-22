@@ -48,14 +48,20 @@ tryvital
 
 There are two deliverables:
 
-1. Implement the callback endpoint: `POST /v1/fitbit/connect/{vital_user_id}`
-  * It should fetch 7 days worth of (historical) activity daily summary data from Fitbit API.
-  * It should then store it in a method of your own choice.
+1. Fetching and storing Activity data
+  * Prep the database
+    * Create an sql table (`aiosqlite`) by filling out the sql query in the `init_db` function
+    * We're interested in storing `steps` and `calories` from the Activity Summary payload
 
-2. Implement the query endpoint: `GET /v1/activity`
-  * It should query the activity daily summary data being stored in Deliverable 1.
-  * The result must be filtered in accordance to the input date range.
-  * The date range should be start inclusive and end inclusive.
+  * Implement the callback endpoint: `POST /v1/fitbit/connect/{vital_user_id}`
+    * It should fetch 7 days worth of (historical) activity daily summary data from Fitbit API.
+    * It should then store it in the sql table from the previous point
+
+2. Querying stored Activity data
+  * Implement the query endpoint: `GET /v1/activity`
+    * It should query the activity daily summary data being stored in Deliverable 1.
+    * The result must be filtered in accordance to the input date range.
+
 
 Notes:
 
