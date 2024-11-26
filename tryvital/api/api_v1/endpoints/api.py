@@ -3,7 +3,7 @@ from typing import Any
 
 from fastapi import APIRouter, Depends
 from sqlalchemy.ext.asyncio import AsyncEngine
-from tryvital.db import get_engine
+from tryvital.db import get_engine, read_query, write_query
 from tryvital.models import Credentials
 
 router = APIRouter()
@@ -19,6 +19,7 @@ async def get_activity(
     """
     Get stored activity data of a user.
     """
+    await read_query("SELECT ...")
     return "Success"
 
 
@@ -32,4 +33,5 @@ async def connect_fitbit(vital_user_id: str, db: AsyncEngine = Depends(get_engin
 
     print(f"Vital User ID: {vital_user_id}")
 
+    await write_query("INSERT INTO ...")
     return "Success"

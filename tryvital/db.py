@@ -1,5 +1,3 @@
-from contextlib import contextmanager
-import sqlite3
 from fastapi import Depends
 from sqlalchemy import text
 from sqlalchemy.ext.asyncio import AsyncEngine, create_async_engine, AsyncSession, async_sessionmaker
@@ -17,11 +15,23 @@ def get_session(db: AsyncEngine = Depends(get_engine)) -> AsyncSession:
     return session_maker()
 
 
+async def read_query(query: str) -> list[dict]:
+    async with get_session(get_engine()) as db:
+        result = await db.execute(text(query))
+        return [dict(row) for row in result.mappings().all()]
+
+
+async def write_query(query: str) -> None:
+    async with get_session(get_engine()) as db:
+        await db.execute(text(query))
+        await db.commit()
+
+
 async def init_db():
     """Initialize the database and create necessary tables"""
-    async with get_session(get_engine()) as session:
-        await session.execute(text("""
-            CREATE TABLE IF NOT EXISTS ...
-        """)
-        )
-        await session.commit()
+
+    await write_query(
+        """
+        CREATE TABLE IF NOT EXISTS ...
+        """
+    )
