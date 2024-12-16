@@ -11,7 +11,7 @@ def get_engine() -> AsyncEngine:
 
 
 def get_session(db: AsyncEngine = Depends(get_engine)) -> AsyncSession:
-    session_maker: async_sessionmaker[AsyncSession] = async_sessionmaker(async_engine, expire_on_commit=False)
+    session_maker: async_sessionmaker[AsyncSession] = async_sessionmaker(db, expire_on_commit=False)
     return session_maker()
 
 
@@ -27,11 +27,30 @@ async def write_query(query: str) -> None:
         await db.commit()
 
 
+async def init_user_table():
+    await write_query(
+        """
+        CREATE TABLE IF NOT EXISTS vital_user (
+            id INTEGER PRIMARY KEY,
+            name TEXT NOT NULL,
+            team_name TEXT NOT NULL
+        );
+        """
+    )
+    await write_query(
+        """
+        INSERT INTO vital_user (name, team_name) VALUES ('Legolas', 'Elves');
+        """
+    )
+
+
 async def init_db():
     """Initialize the database and create necessary tables"""
 
+    await init_user_table()
+
+    # Create table to store your data by filling in the query below:
     await write_query(
         """
-        CREATE TABLE IF NOT EXISTS ...
         """
     )

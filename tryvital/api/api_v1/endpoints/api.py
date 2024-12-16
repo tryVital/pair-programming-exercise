@@ -14,7 +14,6 @@ async def get_activity(
     start_date: date,
     end_date: date,
     vital_user_id: str,
-    db: AsyncEngine = Depends(get_engine)
 ) -> Any:
     """
     Get stored activity data of a user.
@@ -24,7 +23,7 @@ async def get_activity(
 
 
 @router.post("/fitbit/connect/{vital_user_id}")
-async def connect_fitbit(vital_user_id: str, db: AsyncEngine = Depends(get_engine)) -> str:
+async def connect_fitbit(vital_user_id: str) -> str:
     """
     Callback when a user has successfully authenticated with Fitbit.
     """
