@@ -52,6 +52,8 @@ There are two deliverables:
   * Prep the database
     * Create an sql table (`aiosqlite`) by filling out the sql query in the `init_db` function
     * We're interested in storing `steps` and `calories` from the Activity Summary payload
+    * Note: SQLite supports the following data types: https://www.sqlite.org/datatype3.html
+
 
   * Implement the callback endpoint: `POST /v1/fitbit/connect/{vital_user_id}`
     * It should fetch 7 days worth of (historical) activity daily summary data from Fitbit API.
@@ -64,7 +66,6 @@ There are two deliverables:
 
 
 Notes:
-
 * This exercise does not involve going through the actual Fitbit OAuth flow.
 * Fitbit API documentation: Get Daily Activity Summary
   * https://dev.fitbit.com/build/reference/web-api/activity/get-daily-activity-summary/
