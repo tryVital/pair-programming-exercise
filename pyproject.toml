@@ -2,20 +2,20 @@
 name = "pair-programming-exercise"
 version = "0.1.0"
 description = ""
-authors = ["emilioag <emilio@tryvital.io>"]
+authors = ["Junction <developers@junction.com>"]
 readme = "README.md"
 packages = [{include = "tryvital"}]
 
 [tool.poetry.dependencies]
 python = ">=3.10,<4"
-fastapi = "^0.109.2"
-pydantic = "^1.10.14"
-uvicorn = {extras = ["standard"], version = "^0.27.1"}
-requests = "^2.31.0"
-httpx = "^0.26.0"
-sqlalchemy = "^2.0.36"
-aiosqlite = "^0.20.0"
-greenlet = "^3.1.1"
+fastapi = ">=0.109"
+pydantic = ">=2.0,<3"
+uvicorn = {extras = ["standard"], version = ">=0.27,<1"}
+requests = ">=2.31,<3"
+httpx = ">=0.26,<1"
+sqlalchemy = ">=2.0.36,<3"
+aiosqlite = ">=0.20.0,<1"
+greenlet = ">=3.1,<4"
 
 
 [build-system]
